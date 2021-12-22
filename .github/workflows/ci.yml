@@ -30,7 +30,7 @@ jobs:
 
     - name: Email
       if: always()
-      uses: dawidd6/action-send-mail@v2
+      uses: arpitsingh5/action-send-mail@v2
       with:
         # mail server settings
         server_address: smtp.gmail.com
