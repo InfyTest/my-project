@@ -33,7 +33,7 @@ jobs:
       uses: dawidd6/action-send-mail@v2	
       with:	
         # mail server settings	
-        server_address: smtp.yahoo.com	
+        server_address: smtp.gmail.com	
         server_port: 465	
         # user credentials	
         username: ${{ secrets.EMAIL_USERNAME }}	
@@ -43,6 +43,6 @@ jobs:
         # email body as text	
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}	
         # comma-separated string, send email to	
-        to: dbcse@yahoo.com,dbcse@yahoo.com	
+        to: demouser0407@gmail.com	
         # from email name	
-        from: dbcsee
+        from: dbcse
