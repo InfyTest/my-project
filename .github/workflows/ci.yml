@@ -45,4 +45,4 @@ jobs:
         # comma-separated string, send email to	
         to: dbcse@yahoo.com,dbcse@yahoo.com	
         # from email name	
-        from: dbcse
+        from: dbcsee
