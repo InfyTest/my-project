@@ -1,0 +1,8 @@
+#!/bin/sh
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branch" = "feature/testgithook" ]; then
+  echo "You can't commit directly to feature/testgithook branch"
+  exit 1
+fi
