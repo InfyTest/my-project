@@ -13,37 +13,37 @@ jobs:
   build-java:
     if: github.event.deployment_status.state == 'failure'
 
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
+      runs-on: ubuntu-latest
 
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
+      steps:
+      - uses: actions/checkout@v2
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
 
-    - name: Build with Gradle
-      run: ./gradlew build
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-    - name: Send mail	
-      if: always()	
-      uses: dawidd6/action-send-mail@v2	
-      with:	
-        # mail server settings	
-        server_address: smtp.gmail.com	
-        server_port: 465	
-        # user credentials	
-        username: ${{ secrets.EMAIL_USERNAME }}	
-        password: ${{ secrets.EMAIL_PASSWORD }}	
-        # email subject	
-        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}	
-        # email body as text	
-        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}	
-        # comma-separated string, send email to	
-        to: demouser0407@gmail.com	
-        # from email name	
-        from: dbcse
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Send mail	
+        if: always()	
+        uses: dawidd6/action-send-mail@v2	
+        with:	
+          # mail server settings	
+          server_address: smtp.gmail.com	
+          server_port: 465	
+          # user credentials	
+          username: ${{ secrets.EMAIL_USERNAME }}	
+          password: ${{ secrets.EMAIL_PASSWORD }}	
+          # email subject	
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}	
+          # email body as text	
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}	
+          # comma-separated string, send email to	
+          to: demouser0407@gmail.com	
+          # from email name	
+          from: dbcse
